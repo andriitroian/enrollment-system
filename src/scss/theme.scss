@@ -1,0 +1,12 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$enrollment-app-primary: mat-palette($mat-blue);
+$enrollment-app-accent:  mat-palette($mat-orange, A200, A100, A400);
+
+$enrollment-app-warn:    mat-palette($mat-red);
+
+$enrollment-app-theme: mat-light-theme($enrollment-app-primary, $enrollment-app-accent, $enrollment-app-warn);
+
+@include angular-material-theme($enrollment-app-theme);

@@ -1,0 +1,26 @@
+<div class="login-form-wrap">
+	<div class="login-logo-wrap">
+		<img class="login-logo" src="assets/img/logo_naukma.png" alt="naukma" />
+	</div>
+	<mat-form-field class="login-form-field">
+		<mat-select placeholder="Role" [(ngModel)]="role">
+			<mat-option value="Student">Student</mat-option>
+			<mat-option value="Teacher">Teacher</mat-option>
+			<mat-option value="Supervisor">Supervisor</mat-option>
+		</mat-select>
+	</mat-form-field>
+	<ng-container *ngIf="role">
+		<ng-container *ngIf="role !== 'Student';else officeSignIn">
+			<mat-form-field class="login-form-field">
+				<input type="email" matInput placeholder="Email" [(ngModel)]="email" />
+			</mat-form-field>
+			<mat-form-field class="login-form-field">
+				<input type="password" matInput placeholder="Password" [(ngModel)]="password" />
+			</mat-form-field>
+			<button mat-button class="login-login-button">Log in</button>
+		</ng-container>
+		<ng-template #officeSignIn>
+			<button mat-button class="login-login-button" (click)="studentSignIn()">Sign in with office 365</button>
+		</ng-template>
+	</ng-container>
+</div>
